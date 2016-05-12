@@ -37,7 +37,8 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Fleche"
         android:id="@+id/textView2"
-        android:layout_below="@+id/FlecheButton"
+        android:layout_alignBaseline="@+id/textView11"
+        android:layout_alignBottom="@+id/textView11"
         android:layout_alignRight="@+id/FlecheButton"
         android:layout_alignEnd="@+id/FlecheButton" />
 
@@ -59,4 +60,14 @@
         android:layout_below="@+id/ChamoisButton"
         android:layout_alignLeft="@+id/ChamoisButton"
         android:layout_alignStart="@+id/ChamoisButton" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="(Cliquer sur les buttons en bas)"
+        android:id="@+id/textView12"
+        android:layout_below="@+id/textView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 </RelativeLayout>
