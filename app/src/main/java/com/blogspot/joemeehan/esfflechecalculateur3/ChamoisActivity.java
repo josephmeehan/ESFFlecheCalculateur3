@@ -10,6 +10,8 @@ import android.widget.TextView;
 import android.widget.EditText;
 import android.widget.Button;
 import android.view.View.OnClickListener;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 
 public class ChamoisActivity extends AppCompatActivity {
 
@@ -69,11 +71,14 @@ public class ChamoisActivity extends AppCompatActivity {
                     skiopen.setText(String.format("%.2f",sum1));
                 }
 
-
-
-
             }
         });
+
+        AdView mAdView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder()
+                .addTestDevice("YOUR_DEVICE_HASH")
+                .build();
+        mAdView.loadAd(adRequest);
 
     }
 
