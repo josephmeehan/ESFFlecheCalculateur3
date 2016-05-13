@@ -5,7 +5,9 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.KeyEvent;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.widget.TextView;
 import android.widget.EditText;
 import android.widget.Button;
@@ -47,6 +49,26 @@ public class FlecheActivity extends AppCompatActivity {
         temps = (EditText)findViewById(R.id.editText9);
         skiopen = (TextView)findViewById(R.id.editText11);
         CalcFleche = (Button)findViewById(R.id.button);
+
+        temps.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if (actionId == EditorInfo.IME_ACTION_NEXT) {
+
+                    if(!temps.getText().toString().equals("")){
+                        num1 = Double.parseDouble(tempsbase.getText().toString());
+                        num2 = Double.parseDouble(handicap.getText().toString());
+                        sum = num1 / (1+num2/100);
+                        num3 = Double.parseDouble(temps.getText().toString());
+                        sum1 = (num3/sum-1)*100;
+                        skiopen.setText(String.format("%.2f",sum1));
+                    }
+
+                    return true;
+                }
+                return false;
+            }
+        });
 
         CalcFleche.setOnClickListener(new OnClickListener() {
 

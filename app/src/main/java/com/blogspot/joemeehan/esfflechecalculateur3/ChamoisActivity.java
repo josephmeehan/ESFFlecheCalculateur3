@@ -12,6 +12,9 @@ import android.widget.Button;
 import android.view.View.OnClickListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
+import android.widget.TextView.OnEditorActionListener;
+import android.view.KeyEvent;
+import android.view.inputmethod.EditorInfo;
 
 public class ChamoisActivity extends AppCompatActivity {
 
@@ -46,6 +49,26 @@ public class ChamoisActivity extends AppCompatActivity {
         temps = (EditText)findViewById(R.id.editText9);
         skiopen = (TextView)findViewById(R.id.editText11);
         CalcChamois = (Button)findViewById(R.id.button);
+
+        temps.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if (actionId == EditorInfo.IME_ACTION_NEXT) {
+
+                    if(!temps.getText().toString().equals("")){
+                        num1 = Double.parseDouble(tempsbase.getText().toString());
+                        num2 = Double.parseDouble(handicap.getText().toString());
+                        sum = num1 / (1+num2/100);
+                        num3 = Double.parseDouble(temps.getText().toString());
+                        sum1 = (num3/sum-1)*100;
+                        skiopen.setText(String.format("%.2f",sum1));
+                    }
+
+                    return true;
+                }
+                return false;
+            }
+        });
 
         CalcChamois.setOnClickListener(new OnClickListener() {
 
