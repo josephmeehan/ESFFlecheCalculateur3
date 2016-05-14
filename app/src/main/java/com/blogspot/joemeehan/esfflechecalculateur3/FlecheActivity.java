@@ -61,6 +61,7 @@ public class FlecheActivity extends AppCompatActivity {
                         sum = num1 / (1+num2/100);
                         num3 = Double.parseDouble(temps.getText().toString());
                         sum1 = (num3/sum-1)*100;
+                        if (sum1 < 0.0)sum1 = 0.0;
                         skiopen.setText(String.format("%.2f",sum1));
                     }
 
@@ -91,6 +92,7 @@ public class FlecheActivity extends AppCompatActivity {
                 if(!temps.getText().toString().equals("")){
                     num3 = Double.parseDouble(temps.getText().toString());
                     sum1 = (num3/sum-1)*100;
+                    if (sum1 < 0.0)sum1 = 0.0;
                     skiopen.setText(String.format("%.2f",sum1));
                 }
 
